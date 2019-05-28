@@ -348,9 +348,6 @@ objects:
 - apiVersion: v1
   kind: PersistentVolumeClaim
   metadata:
-    labels:
-      app: sonarqube
-      template: postgresql-persistent-template
     name: sonardb
   spec:
     accessModes:
@@ -378,8 +375,7 @@ parameters:
     name: POSTGRES_DATABASE_NAME
     value: sonar
     required: true
-  - description: Postgres 
-  stent volume claim size
+  - description: Postgres Persistent volume claim size
     displayName: Postgres Persistent volume claim size
     name: POSTGRES_PERSISTENT_VOLUME_CLAIM_SIZE
     value: 5Gi
