@@ -8,4 +8,5 @@
     command: oc new-project apachehttp
   - name: create a project
     command: oc new-app httpd -n apachehttp
-  
+  - name: create a project
+    command: oc set volumes dc/httpd --add -t pvc --claim-size=10Gi --claim-name=http-pvc --claim-class=storage-class-solidfire --claim-mode=RWO --overwrite  
