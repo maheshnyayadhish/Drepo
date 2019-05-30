@@ -1,0 +1,11 @@
+---
+- name: cicd demo playbook
+  hosts: all
+  become: true
+  remote_user: toweruser1
+  tasks:
+  - name: create a project
+    command: oc new-project apachehttp
+  - name: create a project
+    command: oc new-app httpd -n apachehttp
+  
