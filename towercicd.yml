@@ -1,0 +1,29 @@
+---
+- name: cicd demo playbook
+  hosts: all
+  become: true
+  remote_user: toweruser1
+  tasks:
+  - name: create a project
+    command: cd   
+  - name: create a project
+    command: git clone https://github.com/siamaksade/openshift-cd-demo.git
+  - name: create a project
+    command: cd openshift-cd-demo/
+  - name: Log in to OpenShift
+    command: oc login https://ocmaster.nb.openenglab.netapp.com:8443 -u admin -p admin
+  - name: create a project
+    command: oc new-project towercicd
+  - name: create a project
+    command: oc new-project towerdev
+  - name: create a project
+    command: oc new-project towerstage
+  - name: create a project
+    command: oc policy add-role-to-group edit system:serviceaccounts:towercicd -n towerdev
+  - name: create a proje
+    command: oc policy add-role-to-group edit system:serviceaccounts:towercicd -n towerstage
+  - name: create a project
+    command: oc new-app -n towercicd -f cicd-template.yaml --param DEV_PROJECT=towerdev --param STAGE_PROJECT=towerstage
+ 
+    
+    
