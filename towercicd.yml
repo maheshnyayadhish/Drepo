@@ -11,7 +11,7 @@
   - name: create a project
     command: cd openshift-cd-demo/
   - name: Log in to OpenShift
-    command: oc login https://ocmaster.nb.openenglab.netapp.com:8443 -u admin -p admin
+    command: oc login https://ocmaster.nb.openenglab.netapp.com:8443 -u toweruser1 -p toweruser1
   - name: create a project
     command: oc new-project towercicd
   - name: create a project
