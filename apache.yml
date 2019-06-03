@@ -1,0 +1,12 @@
+---
+- name: cicd demo playbook
+  hosts: all
+  become: true
+  remote_user: toweruser1
+  tasks:
+  - name: create a project
+    command: oc new-project apache
+  - name: deploy http
+    command: oc new-app httpd -n apache
+  - name: set volume
+    command: oc set volumes dc/httpd --add -t pvc --claim-size=10Gi --claim-name=http-pvc --claim-class=storage-class-solidfire --claim-mode=RWO --overwrite  
