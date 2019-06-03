@@ -7,10 +7,10 @@
   - name: login into cluster
     command: oc login -u toweruser1 -p toweruser1
   - name: create a project
-    command: oc new-project towerdemo2
+    command: oc new-project towerdemo3
   - name: create a project
-    command: oc new-app --docker-image=docker.io/steveltn/https-portal --name=httpdemo -n towerdemo2
+    command: oc new-app --docker-image=docker.io/jenkins --name=jenkindemo -n towerdemo3
   - name: set volume to app
-    command: oc set volumes dc/httpdemo --add -t pvc --name=httpdemo-volume-1 --claim-size=2Gi --claim-name=http-pvc --claim-class=storage-class-solidfire --claim-mode=RWO --overwrite  
+    command: oc set volumes dc/jenkindemo --add -t pvc --name=jenkindemo-volume-1 --claim-size=2Gi --claim-name=jenkin-pvc --claim-class=storage-class-solidfire --claim-mode=RWO --overwrite  
   - name: Expose its route
-    command: oc expose svc/httpdemo -n towerdemo2    
+    command: oc expose svc/jenkindemo -n towerdemo3    
