@@ -3,6 +3,7 @@
   hosts: all
   become: true
   remote_user: toweruser1
+  gather_facts: no
   tasks:
   - name: login into cluster
     command: oc login -u toweruser1 -p toweruser1
